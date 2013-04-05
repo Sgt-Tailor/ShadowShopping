@@ -12,19 +12,32 @@ public class ShopInventory{
 	public ShopInventory(){
 		inv = Bukkit.createInventory(null, 10);
 	}
-	public boolean addItem(ItemStack item){
-		for(ShopItem si : inv.getContents()){
-			//if(si.)
+	public boolean addItem(ItemStack item, int price){
+		item.setAmount(1);//just to make sure
+		if(!inv.contains(item)){
+			ShopItem shopItem = new ShopItem(item, price);
+			items.add(shopItem);
+			update();
 		}
 		return false;
 	}
-	public void updata(){
+	public void update(){
 		inv.clear();
-		int i = 0;
 		for(ShopItem item: items){
 			inv.addItem(item.getDisplayItem());
-			i++;
 		}
+	}
+	public ItemStack getDisplayItem(int slot){
+		return inv.getItem(slot);
+	}
+	public ItemStack getRealItem(int slot){
+		ItemStack a = inv.getItem(slot);
+		for(ShopItem i : items){
+			if(i.getDisplayItem().equals(a)){
+				return i.getItem();
+			}
+		}
+		return null;
 	}
 
 

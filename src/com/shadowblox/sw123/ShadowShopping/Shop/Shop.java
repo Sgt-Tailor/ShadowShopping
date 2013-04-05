@@ -3,6 +3,8 @@ package com.shadowblox.sw123.ShadowShopping.Shop;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+import com.shadowblox.sw123.ShadowShopping.Managers.PlayerManager;
+
 public class Shop {
 	private ShopNPC npc;
 	private ShopInventory inventory;
@@ -12,7 +14,7 @@ public class Shop {
 		return location;
 	}
 	public void PlayerBuyItem(Player p, int slot, int amount){
-		PlayerBuyManager
+		//PlayerManager.playerCanAfford(p, inventory.)
 	}
 
 }
