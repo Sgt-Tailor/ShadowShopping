@@ -27,6 +27,12 @@ public class ShopInventory{
 			inv.addItem(item.getDisplayItem());
 		}
 	}
+	public ShopItem getItem(int slot){
+		if(items.size() >= slot){
+			return items.get(slot);
+		}
+		return null;
+	}
 	public ItemStack getDisplayItem(int slot){
 		return inv.getItem(slot);
 	}
@@ -38,6 +44,18 @@ public class ShopInventory{
 			}
 		}
 		return null;
+	}
+	public boolean contains(ItemStack item, int amount){
+		item.setAmount(1);//just to make sure
+		for(ShopItem sItem : items){
+			if(sItem.getItem().equals(item)){
+				if(sItem.getInStock() >= amount){
+					return true;
+				}
+				return false;
+			}
+		}
+		return false;
 	}
 
 

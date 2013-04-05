@@ -3,6 +3,7 @@ package com.shadowblox.sw123.ShadowShopping.Managers;
 import java.util.ArrayList;
 
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 
 import com.shadowblox.sw123.ShadowShopping.Shop.Shop;
 
@@ -14,7 +15,16 @@ public class ShopManager {
 		Location loc;
 		for(Shop s: shops){
 			loc = s.getLocation();
-			if(loc.equals(location)){
+			if(loc.distance(location) == 0.0){
+				return s;
+			}
+		}
+		return null;
+	}
+	public Shop getShop(Entity npc){
+		Entity ent;
+		for(Shop s : shops){
+			if(s.getEntity().equals(npc)){
 				return s;
 			}
 		}

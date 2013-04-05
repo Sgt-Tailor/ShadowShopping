@@ -9,6 +9,10 @@ public class ShopNPC {
 	private Location loc;
 	private Player entity;
 	
+	public ShopNPC(Location loc){
+		this.loc = loc;
+	}
+	
 	public void spawn(){
 		if(entity != null){
 			entity.setHealth(0);
@@ -16,6 +20,9 @@ public class ShopNPC {
 		Player npc = (Player) loc.getWorld().spawnEntity(loc, EntityType.PLAYER);
 		npc.setCustomName(name);
 		npc.setCustomNameVisible(true);
+	}
+	public Player getEntity(){
+		return entity;
 	}
 	
 
