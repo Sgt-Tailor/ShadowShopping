@@ -3,6 +3,6 @@ author: Sgt_Tailor
 version: 1.0
 main: com.shadowblox.sw123.ShadowShopping.ShadowShopping
 commands:
-   shadowshopping:
-       usage: /shadowshopping
-       description: the default ShadowShopper command
+    shadowshop:
+        usage: /shadowshop
+        description: the default ShadowShopper command

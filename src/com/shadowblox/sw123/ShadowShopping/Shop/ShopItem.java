@@ -1,9 +1,14 @@
 package com.shadowblox.sw123.ShadowShopping.Shop;
 
-import java.util.ArrayList;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class ShopItem {
 	// shop
@@ -18,15 +23,18 @@ public class ShopItem {
 	public ShopItem(ItemStack item, int price){
 		item.setAmount(1);//just in case
 		soldItem = item;
+		name = item.getItemMeta().getDisplayName();
 		createDisplayItem();
 	}	
 	private void createDisplayItem() {
 		displayItem = soldItem;
-		ArrayList<String> lore = new ArrayList<String>();
-		lore.add(ChatColor.GOLD + "price:" + ChatColor.GREEN + " $"+ Integer.toString(price));
+		ItemMeta im = displayItem.getItemMeta();
+		List<String> lore = new ArrayList<String>();
+		lore.add(ChatColor.GOLD + "price: " + ChatColor.GREEN + Integer.toString(price) + " blox");
 		lore.add(ChatColor.GOLD + "in stock: " + ChatColor.GREEN + Integer.toString(inStock));
-		displayItem.getItemMeta().setDisplayName(name);
-		displayItem.getItemMeta().setLore(lore);
+		im.setLore(lore);
+		displayItem.setItemMeta(im);
+		Bukkit.broadcastMessage(displayItem.getItemMeta().getLore().get(0));
 	}
 	public ItemStack getItem(){
 		return soldItem;

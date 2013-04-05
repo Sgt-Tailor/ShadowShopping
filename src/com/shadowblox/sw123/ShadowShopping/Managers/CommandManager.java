@@ -1,18 +1,18 @@
 package com.shadowblox.sw123.ShadowShopping.Managers;
 
 import com.shadowblox.sw123.ShadowShopping.ShadowShopping;
-import com.shadowblox.sw123.ShadowShopping.commands.ShadowShoppingCommand;
+import com.shadowblox.sw123.ShadowShopping.commands.ShadowShopCommand;
 
 
 
 public class CommandManager {
-	private ShadowShoppingCommand ssc;
+	private ShadowShopCommand ssc;
 	
 	public CommandManager(){
-		ssc = new ShadowShoppingCommand();
+		ssc = new ShadowShopCommand();
 	}
 	public void initCommands(){
-		ShadowShopping.getInstance().getCommand("shadowshopping").setExecutor(ssc);
+		ShadowShopping.getInstance().getCommand("shadowshop").setExecutor(ssc);
 	}
 	
 	

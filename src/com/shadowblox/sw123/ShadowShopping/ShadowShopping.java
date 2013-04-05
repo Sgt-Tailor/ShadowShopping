@@ -14,11 +14,11 @@ public class ShadowShopping extends JavaPlugin{
 	private static ShadowShopping instance;
 	
 	public void onEnable(){
+		instance = this;
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(), this);
 		initManagers();
 		cmdManager.initCommands();
-		
 		
 	}
 
@@ -30,6 +30,9 @@ public class ShadowShopping extends JavaPlugin{
 	}
 	public static ShadowShopping getInstance(){
 		return instance;
+	}
+	public ShopManager getShopManager(){
+		return ShopManager;
 	}
 	
 

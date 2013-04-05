@@ -10,7 +10,7 @@ public class ShopInventory{
 	private Inventory inv;
 	private ArrayList<ShopItem> items = new ArrayList<ShopItem>();
 	public ShopInventory(){
-		inv = Bukkit.createInventory(null, 10);
+		inv = Bukkit.createInventory(null, 54, "derperdiederp");
 	}
 	public boolean addItem(ItemStack item, int price){
 		item.setAmount(1);//just to make sure
@@ -30,6 +30,15 @@ public class ShopInventory{
 	public ShopItem getItem(int slot){
 		if(items.size() >= slot){
 			return items.get(slot);
+		}
+		return null;
+	}
+	public ShopItem getItem(ItemStack item){
+		item.setAmount(1);//just in case
+		for(ShopItem i : items){
+			if(i.getItem().equals(item)){
+				return i;
+			}
 		}
 		return null;
 	}
@@ -56,6 +65,9 @@ public class ShopInventory{
 			}
 		}
 		return false;
+	}
+	public Inventory getInventory(){
+		return inv;
 	}
 
 
